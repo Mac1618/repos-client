@@ -1,0 +1,25 @@
+.group-progress{
+    padding: 0 5%;
+    overflow-y: scroll;
+    height: 70vh;
+}
+
+.group-progress .card{
+    margin: 5% 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.group-progress .card button{
+    padding: 0.5rem 1rem;
+}
+
+/* delete btn */
+.group-progress .warning{
+    background-color: crimson;
+}
+
+.group-progress .warning:hover{
+    color: crimson;
+    background-color: #fefefe;
+}

@@ -1,0 +1,148 @@
+.groups{
+    background-color: #f3f5f4;
+    min-height: 100h;
+    max-height: 100%;
+    margin-bottom: 20vh;
+    /* padding: 3% 7%; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.groups .content{
+    background-color: #f3f4f6;
+    padding: 2% 5%;
+    width: 63%;
+}
+
+/* Group content area */
+.content-nav{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.groups .content-nav{
+    margin: 5% 0;
+}
+
+.content-nav ul{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.content-nav ul li{
+    padding: 1% 2%;
+    list-style: none;
+    border-bottom: 1px solid #000;
+    cursor: pointer;
+}
+
+/*  active link */
+.active-nav-link{
+    font-weight: bold;
+    color: orange;
+}
+
+.content-nav ul li:hover{
+    font-weight: bold;
+}
+
+.content-display{
+    padding: 0 5%;
+    overflow-y: scroll;
+
+    height: 53vh;
+}
+
+.content-display::-webkit-scrollbar{
+    display: none;
+}
+
+.content-display .card{
+    margin: 5% 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Groups controll area */
+.groups .controll{
+    background-color: #fefefe;
+    padding: 5% 5% 5% 2%;
+    width: 35%;
+}
+
+.groups .add-member label{
+    margin: 2% 0;
+    display: block;
+}
+
+
+.groups .add-member label{
+    font-size: medium;
+    /* font-weight: ; */
+}
+
+.groups .controll .rename{
+    margin-bottom: 5vh;
+}
+
+.groups .add-member input, .groups .rename input{
+    color: #000;
+    min-height: 30px;
+    width: 75%;
+    font-size: medium;
+
+    padding: 4% 3%;
+    border: none;
+    outline:none;
+
+    border-bottom: 1px solid #000;
+}
+
+.groups .add-member button{
+    padding: 2% 5%;
+    margin-left: 5%;
+    /* margin-left: 60%; */
+}
+
+.groups .add-member{
+    padding: 0 0 4% 0;
+    width: 85%;
+    height: 22%;
+    margin-top: 12%;
+    /* background-color: aqua; */
+}
+
+.groups .rename{
+    width: 85%;
+    height: 22%;
+    margin-top: 15%;
+}
+
+.groups .rename .form{
+    display: flex;
+    justify-content: center;
+}
+
+.groups .rename .form button{
+    margin: 3% 2%;
+    padding: 0.3rem 1rem;
+}
+
+/* Groups buttons */
+.groups button{
+    border: none;
+    outline: none;
+    background-color: orange;
+    color: #fefefe;
+    border-radius: 5px;
+    padding: 1% 4%;
+    box-shadow: 1px 2px 2px 1px #caced9;
+}
+
+.groups button:hover{
+    background-color: #fbbf77;
+    color: #000;
+}

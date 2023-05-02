@@ -1,0 +1,51 @@
+/* Style for Student-list */
+.student-list{
+    margin: 8% 10% 10%;
+    padding: 2% 3% 3% 3%;
+    border: 1px solid #000;
+    background-color: #fff;
+    height: 80vh;
+    min-height: 100%;
+}
+
+.student-list li{
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0 5px;
+    list-style: none;
+    padding-top: 3px;
+    border-top: 1px solid grey;
+}
+
+.student-list li h4, .student-list li p{
+    width: 35%;
+}
+
+.student-list li .info{
+    width: 15%;
+}
+
+.student-list .active{
+    background-color: orange;
+    font-weight: bold;
+}
+
+.student-list .deactivate{
+    border-bottom: 2px solid orange;
+    font-weight: bold;
+    color: orange;
+}
+
+.student-list span{
+    display: inline-block;
+    /* background-color: #f3f3f3; */
+    margin: 1%;
+    padding: 0.5%;
+    cursor: pointer;
+}
+
+.student-list .list{
+    width: 100%;
+    padding: 1% 2%;
+    /* background-color: aqua; */
+}

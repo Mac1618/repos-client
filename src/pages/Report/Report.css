@@ -1,0 +1,99 @@
+.reports{
+    background-color: #f3f5f4;
+    min-height: 87.5vh;
+    max-height: 100%;
+    padding: 8% 10% 10%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.message{
+    background-color: aqua;
+    width: 70%;
+    border-radius: 5px;
+    margin-left: 2%;
+    padding: 2% 3%;
+    background-color: #fefefe;
+    box-shadow: 3px 3px 4px 1px #caced9;
+}
+
+/* Option Section */
+.reports .options{
+    display: flex;
+    justify-content: space-between;
+}
+
+    /* Check List & Text Area */
+    .reports .check-list, .reports .text-area{
+        width: 50%;
+    }
+
+/* Check List */
+.reports .check-list label{
+    margin: 1rem 0 0;
+    display: inline-block;
+    width: 100%;
+}
+
+.reports .check-list h2{
+    margin-bottom: 3vh;
+}
+
+.reports .check-list input{
+    margin-right: 0.5rem;
+}
+
+/* Text Area  */
+.message textarea{
+    width: 100%;
+    height: 52vh;
+    margin-top: 4%;
+    padding: 2%;
+    font-size: medium;
+}
+
+.reports .text-area label{
+    display: inline-block;
+
+}
+
+.message button{
+    margin-top: 22vh;
+    background-color: orange;
+    color: #fefefe;
+    border: 0px;
+    font-size: medium;
+    font-weight: bold;
+    width: 80%;
+    min-height: 20px;
+    padding: 2%;
+    box-shadow: 1px 2px 2px 1px #caced9;
+    border-radius: 5px;
+}
+
+.message button:hover{
+    background-color: #FBBF77;
+    color: #000;
+    font-weight: bolder;
+}
+
+.members{
+    width: 30%;
+    padding-left: 5%;
+}
+
+.members input{
+    margin: 0% 10%;
+}
+
+.members label{
+    display: inline-block;
+    width: 100%;
+    margin-top: 5%;
+}
+
+/* error style */
+.members .error{
+    margin-top: 10vh;
+}

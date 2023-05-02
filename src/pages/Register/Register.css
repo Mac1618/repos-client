@@ -1,0 +1,47 @@
+.register{
+    background-color: #F3F5F4;
+    padding: 5% 35%;
+    height: 100%;
+}
+
+/* login Form */
+.register .form{
+    padding: 5%;
+    height: 100%;
+    background-color: #fefefe;
+    box-shadow: 3px 3px 4px 1px #caced9;
+}
+
+/* Login header */
+.register h2{
+    color: orange;
+    margin-bottom: 20%;
+}
+
+/* Form button */
+.register button{
+    background-color: orange;
+    color: #fefefe;
+    border: 0px;
+    border-radius: 20px;
+    font-size: medium;
+    font-weight: bold;
+    width: 100%;
+    min-height: 20px;
+    padding: 2%;
+    margin-top: 10%;
+
+}
+
+.register button:hover{
+    background-color: #fbbf77;
+    color: #000;
+}
+
+/* register link */
+.register p{
+    text-align: center;
+    margin: 6% 0% 0% 0%;
+
+}
+

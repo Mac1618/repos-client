@@ -1,0 +1,90 @@
+.student-advisee{
+    width: 100%;
+    min-height: 80vh;
+    max-height: 100%;
+}
+
+.student-advisee .search{
+    height: 10vh;
+    text-align: right;
+    padding: 1% 4% 2% 0;
+}
+
+.student-advisee .search input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #000;
+    background-color: #f3f5f4;
+    margin-right: 1%;
+    padding: 1% 1%;
+
+}
+
+.student-advisee .search button{
+    border: 2px solid orange;
+    color: orange;
+    background-color: #f3f5f4;
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+.student-advisee .search button:hover{
+    font-weight: bold;
+}
+
+/* Table custom design */
+
+.student-advisee table .btn{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+/* 
+.student-advisee .content{
+    padding: 0 2% 4% 0;
+    height: 50vh;
+
+    overflow-y: scroll;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-column-gap: 3rem;
+    grid-row-gap: 3rem;
+}
+
+.student-advisee .card{
+    min-width: 300px;
+    max-width: 300px;
+    padding: 0%;
+    padding:10px 10px;
+    height: 20vh;
+    text-align: left;
+}
+
+.student-advisee .card h3{
+    height: 40%;
+    margin-bottom: 10%;
+}
+
+.student-advisee .card .btn{
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.student-advisee .card button{
+    height: 80%;
+    width: 20%;
+    color: #fefefe;
+    background-color: orange;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.student-advisee .card button:hover{
+    background-color: #fbbf77;
+    color: #000;
+    font-weight: bold;
+} */

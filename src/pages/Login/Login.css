@@ -1,0 +1,80 @@
+.login{
+    background-color: #F3F5F4;
+    padding: 5% 35%;
+    height: 100%;
+}
+
+/* login Form */
+.login form{
+    padding: 5%;
+    height: 100%;
+    background-color: #fefefe;
+    box-shadow: 3px 3px 4px 1px #caced9;
+}
+
+/* Login header */
+.login h2{
+    margin-bottom: 20%;
+    color: orange;
+}
+
+/* Form button */
+.login button{
+    background-color: orange;
+    color: #fefefe;
+    border: 0px;
+    border-radius: 20px;
+    font-size: medium;
+    font-weight: bold;
+    width: 100%;
+    min-height: 20px;
+    padding: 2%;
+    margin-top: 10%;
+}
+
+.login button:hover{
+    background-color: #fbbf77;
+    color: #000;
+}
+
+/*  link */
+.login p{
+    text-align: center;
+    margin: 6% 0% 0% 0%;
+
+}
+
+
+/* Input styled component */
+.form-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2% 2% 3% 2%;
+    border-bottom: 1px solid #000;
+    margin-bottom: 5%;
+}
+
+/* Form input */
+.form-logo input {
+    color: #000;
+    min-height: 40px;
+    width: 100%;
+    font-size: medium;
+
+    padding: 2% 2% 2% 2%;
+    border: none;
+    outline:none
+}
+
+/* logo */
+.logo{
+    width: 10%;
+}
+
+.form-logo input:active{
+    border: none;
+    outline:none;
+}
+

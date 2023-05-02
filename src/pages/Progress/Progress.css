@@ -1,0 +1,46 @@
+.progress{
+    padding: 8% 10% 10%;
+    background-color: #f3f5f4;
+    min-height: 80vh;
+    max-height: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-column-gap: 4rem;
+    grid-row-gap: 4rem;
+
+    z-index: -1;
+
+}
+
+.chapters{
+    max-height: 35vh;
+    max-width: 400px;
+    padding: 25px 30px;
+    background-color: #fefefe;
+    box-shadow: 1px 2px 2px 1px #caced9;
+    text-align: center;
+}
+
+.chapters h2{
+    color: maroon;
+}
+
+.chapters button{
+    margin-top: 12vh;
+
+    padding: 2% 3%;
+    background-color: orange;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+
+    box-shadow: 1px 2px 2px 1px #caced9;
+    border-radius: 5px;
+}
+
+.chapters button:hover{
+    background-color: #FBBF77;
+    color: #000;
+    font-weight: bolder;
+}

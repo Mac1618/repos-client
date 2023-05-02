@@ -1,0 +1,83 @@
+.task{
+    width: 100%;
+    /* margin-right: 5%; */
+    height: 80vh;
+    
+    padding: 0 25px 30px 0;
+    border-bottom: 1px solid #c4c5c7;
+
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+.task-popup{
+    width: 100%;
+    padding: 5px;
+    display: flex;
+}
+
+.task .card{
+    height: 35vh;
+    max-width: 400px;
+    padding: 25px;
+    text-align: left;
+    border-radius: 5px;
+}
+
+/* cards Header and date*/
+.task .card .header{
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.task .card .header h4{
+    color: orange;
+}
+.task .card .header span{
+    color: green;
+    margin: 0;
+}
+
+/* .chapter1 .task .card  */
+.date{
+    font-size: small;
+}
+
+/* cards Description*/
+.task .card .hide-decsription{
+    /* background-color: #000; */
+    height: 40%;
+    margin: 5% 0 5%;
+    overflow-y: hidden;
+    font-size: small;
+}
+
+/* cards Buttons */
+.task .card .btn{
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.task .card .btn button{
+    background-color: orange;
+    color: #fefefe;
+    box-shadow: 1px 2px 2px 1px #caced9;
+    border-radius: 5px;
+    border: none;
+    padding: 2px 5px;
+}
+
+.task .card .btn button:hover{
+    color: #000;
+    background-color: #fbbf77;
+    font-weight: bold;
+}
+
+.task .card .btn .link{
+    width: 100%;
+}

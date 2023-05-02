@@ -1,0 +1,101 @@
+.finals{
+    margin: 5% 10%;
+    padding: 4% 4% 6%;
+    height: 70vh;
+
+    background-color: #fefefe;
+    box-shadow: 3px 3px 4px 1px #caced9;
+}
+
+.finals h2{
+    color: orange;
+}
+
+.finals .form{
+    height: 100%;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.finals .form button{
+    margin-top: 20px;
+}
+
+/* Global */
+/* All part of the form */
+.finals .name, .finals .file{
+    padding-top: 10px;
+    height: 100%;
+}
+
+.finals label, .finals input{
+    display: inline-block;
+    width: 100%;
+}
+
+.finals label{
+    font-weight: bold;
+}
+
+.finals label em{
+    font-weight: normal;
+}
+
+/* input container */
+.finals .name{
+    padding: 20px 10px 0;
+    width: 40%;
+    
+}
+
+.finals .name input{
+    padding: 20px;
+    margin: 10px 0 10%;
+    border: 1px solid #000;
+    border-radius: 8px;
+    height: 20px;
+
+}
+
+.finals .name .success{
+    padding: 3% 5%;
+    border-radius: 20px;
+    border: none;
+    background-color: orange;
+    color: #fefefe;
+    width: 100%;
+}
+
+.finals .name .success:hover{
+    background-color: #fbbf77;
+    color: #484848;
+    font-weight: bolder;
+}
+
+/* Upload File */
+.finals .file{
+    position: relative;
+    width: 60%;
+    padding: 0 5% 5%;
+
+}
+
+.finals .file .file-logo-top{
+    margin: 2% 5%;
+    position: absolute;
+    left: 30%;
+    top: 15%;
+}
+.finals .file .file-logo-bottom{
+    margin: 2% 5%;
+    position: absolute;
+    left: 30%;
+    bottom: 8%;
+}
+
+.finals .file input{
+    width: 90%;
+    height: 50%;
+    padding-left: 3%;
+}

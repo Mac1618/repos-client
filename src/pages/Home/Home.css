@@ -1,0 +1,238 @@
+/* .home{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 5% 15%;   
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-column-gap: 2rem;
+    grid-row-gap: 4rem;
+}
+
+.cards img{
+    width: 100%;
+    min-height: 20rem;
+    object-fit: cover;
+} */
+
+/* Home Area */
+.home{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 8% 5% 10%;
+    background-color: #f3f5f4;
+    min-height: 90vh;
+    max-height: 100%;
+}
+
+/* Content holder*/
+.home .content{
+    display: flex;
+    width: 100%;
+}
+
+/* Button to select accounts or archived */
+.home .header-btns{
+    margin: 0;
+    display: inline-block;
+    width: auto;
+}
+
+.home .header-btns button{
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.home .header-btns .active-group{
+    background-color: maroon;    
+}
+
+.home .header-btns .active-archive{
+    background-color: green;    
+}
+
+
+.home .groups-btn{
+    border: 1px solid maroon;
+    padding: 5px 8px;
+}
+
+.home .archive-btn{
+    border: 1px solid green;
+    padding: 5px 8px;
+}
+
+/* Cards Area */
+.home .cards{
+    background-color: #f3f5f4;
+    width: 70%;
+    padding: 2% 5% 2% 2%;
+
+    overflow-y: scroll;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-column-gap: 3rem;
+    grid-row-gap: 3rem;
+}
+
+/* .home .cards::-webkit-scrollbar{
+    display: none;
+} */
+
+.home .controll{
+    background-color: #f3f5f4;
+    width: 30%;
+    padding: 2%;
+}
+
+/* style for cards header */
+.card-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-header h2{
+    padding-left: 4%;
+}
+
+.home .card{
+    max-width: 400px;
+}
+
+.card{
+    background-color: #fefefe;
+    box-shadow: 1px 2px 2px 1px #caced9;
+    padding: 5% 10%;
+    text-align: center; 
+}
+
+.cards .card{
+    padding: 20px 30px;
+    min-height: 150px;
+    max-height: 150px;
+ }
+
+/* .home .card{
+    
+} */
+
+.card-buttons{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.card-buttons button{
+    /* padding: 2% 3%; */
+    padding: 0.3rem 1rem ;
+    
+    background-color: orange;
+    color: #fefefe;
+    box-shadow: 1px 2px 2px 1px #caced9;
+    border-radius: 5px;
+    border: 0px;
+    font-size: small;
+    font-weight: bold;
+}
+
+/* Global style for react-router-dom button */
+button .link{
+    width: 100%; 
+    text-decoration: none;
+}
+
+.card-buttons button .link {
+    color: #fefefe;
+    
+}
+
+
+.card-buttons button .link:hover{
+    color: #000;
+}
+
+.card-buttons button:hover{
+    background-color: #face98;
+    color: #000;
+}
+
+/* controller */
+
+/* search bar */
+.search-bar{
+    background-color: orange;
+    
+    border-radius: 25px;
+    padding: 3px 0px 2px 4px;
+    width: 100%;
+    /* height: 2rem; */
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input{
+    font-size: 1rem;
+    width: 85%;
+    padding: 2% 5%;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+
+    border: none;
+    outline:none;
+}
+
+.search-button{
+    color: #000;
+
+}
+
+.search-button:hover {
+    color: white;
+}
+
+.search-button{
+    width: 12%;
+    margin: 0px 2%;
+    padding: 0%;
+}
+
+/* add card */
+.add-card-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home .controll .container{
+    margin-top: 30%;
+    padding-bottom: 10%;
+}
+
+.home .controll .container h2{
+    padding-bottom: 15%;
+}
+
+.add-card-group input{
+    color: #000;
+    min-height: 40px;
+    width: 80%;
+    font-size: medium;
+
+    padding: 2% 2% 2% 2%;
+    border: none;
+    outline:none;
+    border-bottom: 1px solid #000;
+    background-color: #fefefe;
+}
+
+.home .controll .add-button{
+    width: 20%;
+
+    text-align: center;
+}

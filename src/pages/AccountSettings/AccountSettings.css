@@ -1,0 +1,119 @@
+.profile-account{
+    min-height: 90vh;
+    max-height: 100%;
+    padding: 5% 15% 10%;
+    background-color: #f3f5f4; 
+}
+
+
+.profile-account button{
+    background-color: orange;
+    color: #fefefe;
+
+    border-radius: 50%;
+    padding: 0.5rem;
+    font-size: small;
+    border: none;
+    outline: none;
+
+    position: absolute;
+    right: 10%;
+    top: 33%;
+
+}
+
+/* Name and Info Section */
+.profile-account .name, .profile-account .info{
+    border-radius: 3px;
+    background-color: #fefefe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    /* span & section */
+    .profile-account span, .profile-account section{
+        display: inline-block;
+        height: 100%;
+    }
+
+    .profile-account span{
+        width: 30%;
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        /* Logo inside span */
+        .profile-account span .logo{
+            width: 50%;
+        }
+
+    .profile-account section{
+        width: 70%;
+        display: flex;
+        align-items: center;
+    }
+
+/* Name Section */
+.profile-account .name{
+    margin: 2% 0 5%;
+    height: 20vh;
+}
+
+
+/* Info Section */
+.profile-account .info{
+    height: 100%;
+    padding: 20px 0;
+}
+
+    /* Details Area */
+    .profile-account .details{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 500px));
+        grid-column-gap: 1rem;
+        grid-row-gap: 2rem;
+    }
+
+
+/* Year and Section Area */
+.profile-account .year-and-section{
+    margin-top: 50px;
+    padding: 20px 50px;
+    
+}
+
+.profile-account .year-and-section .options{
+    margin-top: 30px;
+    padding: 0 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-account .year-and-section .options label{
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+    
+}
+
+.profile-account .year-and-section .options select{
+    width: 50%;
+}
+
+.profile-account .year-and-section .options span{
+    width: 20%;
+    color: #fefefe;
+    background-color: orange;
+    width: 120px;
+    height: 30px;
+    border-radius: 4px;
+    margin: auto;
+}
+
+.profile-account .year-and-section .options span:hover{
+    background-color: #fbbf77;
+    color: #000;
+}

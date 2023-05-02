@@ -1,0 +1,274 @@
+.chapter{
+    background-color: #f3f5f4;
+    padding: 8% 10% 10%;
+    min-height: 80vh;
+    max-height: 100%;
+}
+
+/* .chapter .task::-webkit-scrollbar{
+    display: none;
+} */
+
+/* Content Area */
+.chapter .content{
+    width: 100%;
+    
+}
+
+
+/* Comment section */
+.comment{
+    width: 65%;
+}
+.comment-header{
+    margin-top: 10vh;
+}
+
+.comments .content{
+    width: 100%;
+    height: 100%;
+}
+
+.chapter .comments{
+    background-color: #fcd6a7;
+    box-shadow: 1px 2px 2px 1px #caced9;
+
+    padding: 0% 4% 2% 4%;
+    width: 80%;
+    margin-right: 5%;
+    height: 40vh;
+
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+/* .chapter .comments::-webkit-scrollbar{
+    display: none;
+} */
+
+.chapter .comments .user, .chapter .comments .date{
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.chapter .comments .date{
+    margin-left: 1rem;
+    font-size: small;
+}
+.chapter .chat-box{
+    width: 70%;
+    padding: 1% 2%;
+    margin: 2% 0;
+    
+    border-radius: 10px;
+}
+
+.chapter .comments .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.chapter .comments button{
+    cursor: pointer;
+    border: none;
+}
+
+.chapter .adviser-comment{
+    background-color: #fefefe;
+}
+
+.chapter .student-comment{
+    background-color: #C5EAFA;
+    margin-left: 30%;
+}
+
+/* Header of comment section */
+.chapter .comment-header{
+    background-color: #fcd6a7;
+    box-shadow: 1px 2px 2px 1px #caced9;
+    border-radius: 15px 15px 0 0;
+    width: 80%;
+    margin-top: 0;
+    height: 5vh;
+    padding: 1% 4%;
+}
+
+/* Sending Comment */
+.chapter .send{
+    display: flex;
+    background-color: #fcd6a7;
+    box-shadow: 1px 2px 2px 1px #caced9;
+    border-radius: 0 0 15px 15px;
+    width: 80%;
+    height: 10vh;
+    padding: 2% 4% 2% 4%;
+    margin-right: 5%;
+
+}
+.chapter .send textarea{
+    width: 85%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: medium;
+    padding: 5px 10px 5px 10px;
+    border-radius: 15px 0 0 15px;
+}
+
+.chapter .send textarea::-webkit-scrollbar{
+    display: none;
+}
+
+.chapter .send button{
+    background-color: orange;
+    color: white;
+    width: 15%;
+    border: none;
+    border-radius: 0 15px 15px 0;
+
+}
+
+.chapter .send button:hover{
+    color: #000;
+    font-weight: bold;
+}
+
+
+/* Control Area */
+.chapter .control{
+    margin: 10vh 0 0;
+    width: 100%;
+}
+
+.chapter .control .control-content{
+    display: flex;
+}
+
+/* Content Area Header */
+.chapter .content h1{
+    margin-bottom: 5vh;
+    color: orange;
+}
+
+/* creating task */
+.chapter .create-task{
+    width: 35%;
+    height: 38vh;
+}
+
+/* task header */
+.chapter .create-task h3{
+    margin-bottom: 2%;
+}
+
+/* description */
+.chapter .create-task .desc{
+    display: block;
+    margin: 1% 0;
+}
+
+.chapter .create-task input{
+    border: none;
+    outline: none;
+    margin-left: 2%;
+    border-bottom: 1px solid #000;
+    padding: 1% 2%;
+    background-color: #f3f5f4;
+}
+
+.chapter .create-task textarea{
+    width: 100%;
+    padding: 1% 1% 1% 2%;
+    border-radius: 10px;
+    width: 100%;
+}
+
+/* task button */
+.chapter .create-task button{
+    background-color: orange;
+    color: #fff;
+    border: none;
+    
+    padding: 1% 4%;
+    margin-top: 1%;
+    box-shadow: 1px 2px 2px 1px #caced9;
+    border-radius: 5px;
+}
+
+.chapter .create-task button:hover{
+    font-weight: bold;
+    background-color: #fbbf77;
+    color: #000;
+}
+
+
+/* Progress Area */
+.chapter .chapter-progress{
+    /* background-color: crimson; */
+    width: 100%;
+    height: 70vh;
+    margin-top: 10vh;
+}
+
+/* Progress Header */
+.chapter .chapter-progress h3{
+    margin-bottom: 6%;
+}
+
+/* Checkboxes */
+.chapter .chapter-progress input{
+    width: 20%;
+    margin-bottom: 4%;
+}
+
+.chapter .checkboxes label button{
+    background-color: #000;
+    margin: 0 20px 0 0;
+}
+
+.chapter .chapter-progress label{
+    display: inline-block;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 4%;
+}
+
+.chapter .chapter-progress label span{
+    color: green;
+}
+
+/* Progress percent */
+.chapter .chapter-progress strong{
+    display: inline-block;
+    width: 10%;
+    text-align: center;
+    margin: 0 5%;
+    border-top: 1px solid #000;
+}
+
+.chapter .chapter-progress p{
+    display: inline-block;
+    width: 75%;
+}
+
+/* Progress button */
+.chapter .chapter-progress button{
+    background-color: orange;
+    color: #fff;
+    border: none;
+    
+    padding: 1% 4%;
+    margin: 6% 0 0 5%;
+    box-shadow: 1px 2px 2px 1px #caced9;
+    border-radius: 5px;
+}
+
+.chapter .chapter-progress button:hover{
+    font-weight: bold;
+    background-color: #fbbf77;
+    color: #000;
+}

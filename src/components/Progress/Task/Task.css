@@ -1,0 +1,171 @@
+/* Component Parent Div */
+.task-page{
+    padding: 8% 15% 10%;
+    min-height: 80vh;
+    max-height: 100%;
+    background-color: #f3f5f4;
+}
+
+/* File links for the a take received in the database */
+.file-links{
+    display: inline-block;
+    width: 100%;
+}
+
+/* All Header text color */
+.task-page h2, .task-page .files h4{
+    color: orange;
+} 
+
+/* .card Style */
+.task-page .card{
+    text-align: left;
+}
+
+/* Description Section */
+.task-page .description{
+    height: 50vh;
+    margin-bottom: 10vh;
+    padding: 3% 5%;
+}
+
+    /* Header of Description Section  */
+    .task-page .description .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10vh;
+    }
+    .task-page .description .header h4{
+        color: maroon;
+    }
+
+    /* Content of Description Section */
+    .task-page .description .content{
+        height: 25vh;
+    }
+
+    /* Content h4 */
+    .task-page .description .content h4{
+        margin-bottom: 2vh;
+        color: maroon;
+    }
+    /* handling error */
+    .task-page .error{
+        margin-bottom: 20vh;
+        text-align: center;
+    }
+    
+/* Manuscript and Revision Parent Div */
+.task-page .files{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Manuscript and Revision commonality style */
+.task-page .manuscript, .task-page .revision{
+    width: 50%;
+    padding: 2% 3% ;
+}
+
+    /* h4 */
+    .task-page .files h4{
+        margin-bottom: 4%;
+    }
+    
+    /* upload div */
+    .task-page .files .uploads{
+        border-top: 1px solid #cac5c7;
+        margin-top: 5%;
+        height: 80%;
+    }
+
+    .task-page .files .uploads .upload-img{
+        width: 200px;
+    }
+
+    /* button */
+    .task-page .files button{
+        padding: 0.3rem 1rem ;
+        border-radius: 5px;
+        border: 0px;
+
+        background-color: orange;
+        color: #fefefe;
+        box-shadow: 1px 2px 2px 1px #caced9;
+        
+        font-size: small;
+        font-weight: bold;
+    }
+
+    /* button hover effect */
+    .task-page .files button:hover{
+        background-color: #fbbf77;
+        color: #000;
+    }
+
+    /* Form for input and button */
+    .task-page .files .form{
+        height: 25px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .task-page .files .filename{
+        width: 50%;
+    } 
+    
+    .task-page .files .download-file, 
+    .task-page .files .delete-file{
+        width: 25%;
+        text-align: center;
+    }
+
+    /* Download style */
+    .file-download{
+        margin-top: 10px;
+        height: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+    /* Download button */
+    .file-download p{
+        font-size: small;
+        font-weight: bold;
+    }
+    .file-download .download{
+        text-decoration: underline;
+        color: blue;
+        cursor: pointer;
+    }
+    .task-page .files .delete-file{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .file-download .warning{
+        width: 50%;
+        text-align: center;
+        border-radius: 4px;
+        margin: 3px;
+        padding: 5px;
+        font-size: small;
+    }
+    /* hove state */
+    .file-download .download:hover{
+        font-weight: bold;
+    }
+
+/* Manuscript Section */
+.task-page .manuscript{
+    margin-right: 10vh;
+}
+
+/* Revision Section */
+.task-page .revision{
+    
+}

@@ -1,0 +1,32 @@
+/* main div */
+.manage-students{
+    padding: 5%  10% 10%;
+    background-color: #f3f5f4;
+}
+
+/* Header Section */
+.manage-students .header{
+    height: 100%;
+}
+
+    /* title name */
+.manage-students .header .title h1{
+    color: orange;
+}
+
+.manage-students .header .title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    /* Navigation bar */
+.content-nav{
+    margin: 10vh 0 7vh;
+}
+
+/* Content Section */
+
+
+
+

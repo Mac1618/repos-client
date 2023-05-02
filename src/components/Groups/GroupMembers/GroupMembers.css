@@ -1,0 +1,16 @@
+.group-members{
+    padding: 0 5%;
+    overflow-y: scroll;
+
+    height: 70vh;
+}
+
+.group-members::-webkit-scrollbar{
+    display: none;
+}
+
+.group-members .card{
+    margin: 5% 0;
+    display: flex;
+    justify-content: space-between;
+}

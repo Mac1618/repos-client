@@ -1,0 +1,151 @@
+.archive{
+  padding: 5% 5% 10%;
+  min-height: 80vh;
+  max-height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Academic year */
+.archive .content {
+  width: 70%;
+  height: 70vh;
+  margin-bottom: 20px;
+}
+.archive .yearly {
+  padding: 5% 10% 5% 0;
+  height: 100%;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+}
+.archive .yearly div {
+  max-width: 400px;
+  height: 28vh;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 3px 3px 4px 1px #caced9; 
+}
+.archive .yearly div h3 {
+  height: 40%;
+  color: orange;
+}
+.archive .yearly div p {
+  height: 40%;
+}
+
+.archive .yearly .btns {
+  height: 20%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0;
+}
+.archive .yearly .link {
+  border: 1px solid #fff;
+  background-color: orange;
+  color: #fff;
+  text-decoration: none;
+  width: 25%;
+  border-radius: 20px;
+  font-size: small;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.archive .yearly .link:hover, .archive .yearly button:hover {
+  color: #252525;
+  font-weight: bolder;
+  background-color: #fbbf77;
+}
+
+/* CONTROLLER */
+.archive .control{
+  padding: 0 2%;
+  width: 30%;
+}
+
+/* headear */
+.archive h1{
+  color: orange;
+  margin-bottom: 8%;
+}
+
+/* search bar */
+.archive .search-bar{
+  margin-bottom: 10vh;
+}
+
+.archive .search-bar input{
+  margin-bottom: 1px;
+}
+
+/* Show Manuscript files */
+.archive .files-btn{
+  border: 1px solid #252525;
+  background-color: #fff;
+
+  text-align: center;
+  border-radius: 10px;
+
+  width: 100%;
+  padding: 20px 0;
+}
+
+.archive .files-btn label, .archive .files-btn button{
+  display: inline-block;
+}
+
+.archive .files-btn h3{
+  color: #252525;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.archive .files-btn button{
+  border: none;
+  background-color: orange;
+  color: #fefefe;
+  width: 40%;
+  padding: 2% 3%;
+  border-radius: 20px;
+}
+
+.archive .files-btn button:hover{
+  background-color: #fbbf77;
+  border: 1px solid #fefefe;
+  color: #2f2f2f;
+  font-weight: bolder;
+}
+
+/* CSS for the button container */
+.archive .button-container {
+  margin-top: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* CSS for the button */
+.archive .button {
+  background-color: #4CAF50; /* Green background */
+  border: none; /* Remove border */
+  color: white; /* White text */
+  padding: 10px 15px; /* Some padding */
+  border-radius: 5px;
+  box-shadow: 3px 3px 4px 1px #caced9; 
+  text-align: center; /* Center text */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Display as inline block element */
+  font-size: 16px; /* Set font size */
+  margin: 4px 2px; /* Add some margin */
+  cursor: pointer; /* Add cursor on hover */
+}
+
+/* CSS for the button when it's active */
+.archive .button.active {
+  background-color: #3e8e41; /* Darker green background */
+}

@@ -1,0 +1,126 @@
+.create-admin {
+    margin: 5% 10%;
+    height: 100%;
+    padding: 4% 4%;
+    background-color: #fff;
+}
+.create-admin .form {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
+}
+.create-admin h2 {
+    margin-bottom: 5%;
+    color: orange;
+}
+.create-admin label, .create-admin input {
+    display: inline-block;
+    width: 100%;
+}
+.create-admin label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #a1a1a1;
+    padding-bottom: 5px;
+}
+.create-admin input {
+    padding: 3% 5%;
+    color: #000;
+    border: 1px solid #484848;
+    background-color: #fff;
+}
+.create-admin .outside {
+    color: #fff;
+    background-color: green;
+    border: 1px solid #c0c0c0;
+    padding: 1% 1%;
+    margin-top: 25px;
+    border-radius: 20px;
+}
+.create-admin .outside:hover {
+    font-weight: bold;
+    background-color: lightgreen;
+    color: #2f2f2f;
+}
+.create-admin .form .data{
+    width: 100%;
+}
+
+.create-admin .form .data select{
+    position: static;
+}
+
+
+/* Section and Academic year */
+.create-admin h3{
+    margin: 15vh 0 5vh;
+    color: orange;
+}
+
+.create-admin .options{
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
+} 
+
+.create-admin .options .data div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-admin .options .data input{
+    width: 90%;
+}
+
+.create-admin .options .data button{
+    margin: 0;
+    width: 10%;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Select options */
+.create-admin .section-form .data button{
+    border: none;
+    outline: none;
+}
+
+/* Search bar */
+.create-admin .handled-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    margin-top: 10vh;
+}
+
+.handled-section h3{
+    margin: 0;
+    width: 50%; 
+}
+
+.create-admin .search-bar{
+    width: 50%;
+    height: 80%;
+}
+
+.create-admin .search-bar input{  
+    margin: 0;
+    padding: 0;
+    padding: 2.5%;
+    font-size: small;
+}
+
+.create-admin .search-bar span{
+    height: 80%;
+}

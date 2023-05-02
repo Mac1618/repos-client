@@ -1,0 +1,25 @@
+.repository-files{
+    margin: 5% 10% 5%;
+    min-height: 80vh;
+    max-height: 100%;
+}                   
+
+/* Header */
+.repository-files .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10vh;
+}
+
+.repository-files .header .colored{
+    color: orange;
+    display: inline-block;
+}
+
+    /* Search bar */
+.repository-files .search-bar{
+    width: 40%;
+}
+
+
