@@ -50,51 +50,16 @@
 
 .manage-users .content{
     height: 70vh;
+    width: 80%;
+    margin: auto;
     overflow-y: scroll;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-column-gap: 50px;
-    grid-row-gap: 50px;
 }
 
 .manage-users .content::-webkit-scrollbar{
     display: none;
 }
 
-.manage-users .content .card{
-    height: 25vh;
-    max-width: 400px;
-    background-color: #fefefe;
-    box-shadow: 1px 2px 2px 1px #caced9;
-    padding: 25px 30px 25px;
-}
-
-.manage-users .content .card  .head{
-    height: 13vh;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.manage-users .content .card h3{
-    text-align: left;
-    font-size: medium;
-    color: orange;
-}
-
-.manage-users .content .card h4{
-    text-align: left;
-    font-size: small;
-    font-weight: normal;
-}
-
-.manage-users .content .card .btn{
-    display: flex;
-    justify-content: space-evenly;
-    
-}
-
-.manage-users .content .card button{
+.manage-users .content table button{
     padding: 0.3rem 0.6rem;
     background-color: orange;
     color: #fefefe;
@@ -106,8 +71,8 @@
     
 }
 
-.manage-users .content .card button:hover{
-    background-color: #face98;
-    color: #000;
+.manage-users .content table button:hover{
+    background-color: #fefefe;
+    color: orange;
     font-weight: bold;
 }

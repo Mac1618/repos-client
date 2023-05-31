@@ -126,7 +126,7 @@ function ChapterCards(props) {
     const handleUndoneCheckboxStatus = async( _id, status, taskName) => {
 
         confirm({ title: `Do you want to uncheck this task: ${taskName}?`,
-                description: `Please note that after uncheking the task: ${taskName}. You need to click the "update task" button that will pop up at the percent !`,
+                description: `Please note that after uncheking the task: ${taskName}. You need to click the "update task" button that will pop up at the top left part!`,
                 confirmationText: "Uncheck"
         }).then(async() => {
 
@@ -167,7 +167,7 @@ function ChapterCards(props) {
     const handleDoneCheckboxStatus = async( _id, status, taskName) => {
 
         confirm({ title: `Do you want to check this task: ${taskName}?`,
-                description: `Please note that after cheking the task: ${taskName}. You need to click the "update task" button that will pop up at the percent !`,
+                description: `Please note that after cheking the task: ${taskName}. You need to click the "update task" button that will pop up at the top left part!`,
                 confirmationText: "Check"
         }).then(async() => {
                 //patch data

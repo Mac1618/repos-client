@@ -62,34 +62,48 @@ function ManageUsers() {
 
       <h2>Advisers Account</h2>
       <div className="content">
-        {adminAccounts ? adminAccounts
-        .filter(admins => {
-                if (searchBar === '') {
-                    return admins
-                } else if (  
-                    admins.name.toLowerCase().includes(searchBar.toLowerCase())
-                ) {
-                    return admins;
-                }
-                return false;
-            })
-        .map((adviser, index) => {
-          const { name, _id } = adviser
-          return(
-            <div className="card" key={index}>
-              <div className="head">
-                <h3>{name}</h3>
-              </div>
-              <div className='btn'>
-                <Link to={'/manageadvisers/managestudents'} 
-                  state={{ admin_id: _id }} 
-                  className='link'>
-                  <button>Advisee</button>
-                </Link>
-              </div>
-            </div>
-          )
-        }): null }
+    
+        <table >
+        <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {adminAccounts ? adminAccounts
+              .filter(admins => {
+                      if (searchBar === '') {
+                          return admins
+                      } else if (  
+                          admins.name.toLowerCase().includes(searchBar.toLowerCase())
+                      ) {
+                          return admins;
+                      }
+                      return false;
+                  })
+              .map((adviser, index) => {
+                const { name, _id } = adviser
+                return(
+                  <tr>
+                    <td key={index}>{index + 1}</td>
+                    <td>{name}</td>
+                    <td>
+                      <div className='btn'>
+                        <Link to={'/manageadvisers/managestudents'} 
+                          state={{ admin_id: _id }} 
+                          className='link'>
+                          <button>Advisee</button>
+                        </Link>
+                      </div>
+                    </td>
+                  </tr>
+                )}
+              ): null}
+          </tbody>
+        </table>
 
   
       </div>

@@ -78,7 +78,7 @@ function CreateAccount() {
             showAllSections()
 
             //Notification
-            Toast(`${name} Account is succesfuly created`, 'success');
+            Toast(`${name} Account and notification email is sent `, 'success');
 
             // reset states
             setError('')
@@ -386,6 +386,8 @@ function CreateAccount() {
         //saving the data
         await Axios.get(`${process.env.REACT_APP_DEV_BASE_URL}/dean/advisers-year-and-section`, Auth)
         .then((response) => {
+
+            console.log(response.data)
             setYearAndSection(response.data)
             // clear and call
             setError2('')
@@ -432,14 +434,14 @@ function CreateAccount() {
         })
     };
 
-    const deleteYearAndSection = async ( id, academicYear, section ) => {
+    const deleteYearAndSection = async ( id, academicYear, section, adviser ) => {
 
         if(!yearAndSection){
             return setError2('No Academic Year selected!')
         }
 
         // confirmation
-        confirm({ title: `Do you want remove adviser's Academic Year and Section: ${academicYear} ${section}?`,
+        confirm({ title: `Do you want remove "${adviser}" Academic Year and Section: "${academicYear} ${section}"?`,
                 description: `Please note that this will permanently remove the connection of the adviser from ${academicYear} ${section}.`,
                 confirmationText: "Delete"
         }).then(async() => {
@@ -472,6 +474,30 @@ function CreateAccount() {
             Toast(`You cancelled ${academicYear} ${section} deletion`, 'info');
         });
     }
+
+    // First, create a state variable to store the selected adviser
+    const uniqueAdvisersSet = new Set();
+
+    // Create a function to handle adviser selection
+    const handleAdviserClick = (adviser) => {
+        setSearchBar(adviser);
+    };
+
+    // Number of tables to be shown
+    const [showAll, setShowAll] = useState(false);
+    const [numRowsToShow, setNumRowsToShow] = useState(10);
+
+    const handleShowMore = () => {
+        setShowAll(true);
+    };
+
+    const handleShowLess = () => {
+        setShowAll(false);
+    };
+
+
+
+    
 
   return (
     <div className='create-admin'>
@@ -538,6 +564,26 @@ function CreateAccount() {
         </div>
         
             {error2 && <div className='error'>{error2}</div>}
+
+            {/* Adviser list */}
+            {yearAndSection &&
+                yearAndSection.forEach((item) => {
+                    // Add the adviser name to the set
+                    uniqueAdvisersSet.add(item.adviser);
+                })}
+
+            {/* Render the unique adviser names */}
+            {Array.from(uniqueAdvisersSet).map((adviser) => (
+                <button className='btns-advisers' key={adviser} onClick={() => handleAdviserClick(adviser)}>
+                    {adviser}
+                </button>
+            ))}
+
+            {/* Reset Adviser */}
+            <button className='btns-advisers' onClick={() => setSearchBar('')}>
+                Show All
+            </button>
+
             <table >
                 <thead>
                     <tr>
@@ -563,11 +609,12 @@ function CreateAccount() {
                 })
                 .sort((a, b) => a.adviser.localeCompare(b.adviser))
                 .sort((a, b) => b.academicYear.localeCompare(a.academicYear))
+                .slice(0, showAll ? undefined : numRowsToShow) // Show only a limited number of rows based on the state
                 .map((files, index) => {
                     const { _id, academicYear, section, adviser } = files;
                     return(
-                    <tr>
-                        <td key={index}>{index + 1}</td>
+                    <tr key={index}>
+                        <td>{index + 1}</td>
                         <td>{adviser}</td>
                         <td>{section}</td>
                         <td>{academicYear}</td>
@@ -575,7 +622,7 @@ function CreateAccount() {
                         <button
                             
                             onClick={() => {
-                                deleteYearAndSection(_id, academicYear, section)
+                                deleteYearAndSection(_id, academicYear, section, adviser)
                             }} 
                         ><FaIcons.FaTrashAlt color='red' size={25}/></button>
                         </td>
@@ -583,8 +630,19 @@ function CreateAccount() {
                     ) 
                 })
                 }
+
+                <tr>
+                    <td>{/* Button for Show More and Show Less */}
+                        {showAll ? 
+                                <button className='btns-more-less' onClick={handleShowLess}>Show less...</button> 
+                            : 
+                                <button className='btns-more-less' onClick={handleShowMore}>Show more...</button>}
+                    </td>
+                </tr>
                 </tbody>
             </table>
+
+            
 
         
         

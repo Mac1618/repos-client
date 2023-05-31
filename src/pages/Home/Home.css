@@ -19,7 +19,7 @@
 /* Home Area */
 .home{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 8% 5% 10%;
+    padding: 5% 5% 5%;
     background-color: #f3f5f4;
     min-height: 90vh;
     max-height: 100%;
@@ -67,13 +67,14 @@
     background-color: #f3f5f4;
     width: 70%;
     padding: 2% 5% 2% 2%;
+    height: 70vh;
 
     overflow-y: scroll;
 
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-column-gap: 3rem;
-    grid-row-gap: 3rem;
+    grid-column-gap: 2rem;
+    grid-row-gap: 3rem; */
 }
 
 /* .home .cards::-webkit-scrollbar{

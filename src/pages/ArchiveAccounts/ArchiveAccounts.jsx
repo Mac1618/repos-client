@@ -177,44 +177,58 @@ function ArchiveAccounts() {
       <h2>Advisers Accounts:</h2> 
       <div className='yearly'>
 
-      { adminAccounts && 
-            adminAccounts.filter(admins => {
-                if (searchBar === '') {
-                    return admins
-                } else if (  
-                    admins.name.toLowerCase().includes(searchBar.toLowerCase())
-                ) {
-                    return admins;
-                }
-                return false;
-            })
-            .map((adviser, index) => {
+      <table >
+        <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Section</th>
+              <th>Handler</th>
+            </tr>
+          </thead>
+
+          <tbody>
+              {adminAccounts && 
+                adminAccounts.filter(admins => {
+                  if (searchBar === '') {
+                      return admins
+                  } else if (  
+                      admins.name.toLowerCase().includes(searchBar.toLowerCase())
+                  ) {
+                      return admins;
+                  }
+                  return false;
+              }).map((adviser, index) => {
                 const { name, section, _id, isArchived } = adviser;
                 return(
-                    <div key={index}>
-                        <h3>{name}</h3>  
-                        <p>{section}</p>    
-                        <span className='btns'>
-                            {
-                              !isArchived ? 
-                              <button
-                                  disabled={isLoading}
-                                  onClick={() => handleArchived(_id, name)} 
-                                  className='link'>archive
-                              </button>
-                              : 
-                              <button
-                                  disabled={isLoading}
-                                  onClick={() => handleUnarchived(_id, name)} 
-                                  className='link'>unarchive
-                              </button>
-                            }
-                              
-
-                        </span>
-                    </div>
-                )
-            })}
+                      <tr>
+                        <td key={index}>{index + 1}</td>
+                        <td>{name}</td>
+                        <td>{section}</td>
+                        <td>
+                          <span className='btns'>
+                              {
+                                !isArchived ? 
+                                <button
+                                    disabled={isLoading}
+                                    onClick={() => handleArchived(_id, name)} 
+                                    className='link'>archive
+                                </button>
+                                : 
+                                <button
+                                    disabled={isLoading}
+                                    onClick={() => handleUnarchived(_id, name)} 
+                                    className='link'>unarchive
+                                </button>
+                              }   
+                          </span>
+                        </td>
+                      </tr>
+                    )}
+                  )}
+          </tbody>
+        </table>
+        
       </div>
     </div>
 

@@ -245,91 +245,119 @@ return (
       
 
     <section className='cards'> 
-    { switchPage ? 
-      ( switchArchivedPage ?
-        // ADVISER: Location is "components/Groups/ArchivedGroups/ArchivedGroups.jsx"
-        <ArchivedGroups 
-            showGroups={groupNames} 
-            academicYear={storeAcadYear && storeAcadYear} 
-            searchBar={searchBar} handleGroups={handleGroup}
-        /> : groupNames.academicYear.filter(academicYear => {
+    
+
+      { switchPage ? 
+        ( switchArchivedPage ?
+          // ADVISER: Location is "components/Groups/ArchivedGroups/ArchivedGroups.jsx"
+          <ArchivedGroups 
+              showGroups={groupNames} 
+              academicYear={storeAcadYear && storeAcadYear} 
+              searchBar={searchBar} handleGroups={handleGroup}
+          /> : 
+          <table >
+            <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Academic year</th>
+                  <th>Buttons</th>
+                </tr>
+              </thead>
+
+              <tbody>
+          {groupNames.academicYear.filter(academicYear => {
+            return(
+              !academicYear.isArchived &&
+              (searchBar === '' || academicYear.academicYear.toLowerCase().includes(searchBar.toLowerCase()) )
+            )
+          }) 
+          .sort((a, b) => a.academicYear.localeCompare(b.academicYear)) // sort by academicYear
+          .map((ay, index) => {
+            const { academicYear, _id } = ay
+            return(
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td><h4>{academicYear}</h4></td>
+                <td>
+                  <div className='card-buttons'>
+                    <button
+                      onClick={() => {
+                        setSwitchArchivedPage(true)
+                        setStoreAcadYear(academicYear)
+                      }}
+                    >View</button>
+                  </div>
+                </td>
+
+              </tr>
+            )
+          })}
+          </tbody>
+          </table>
+        )
+      :
+      <table >
+        <thead>
+            <tr>
+              <th>#</th>
+              <th>Group Name</th>
+              <th>Academic year</th>
+              <th>Buttons</th>
+            </tr>
+          </thead>
+
+          <tbody>
+        {groupNames && groupNames.group.filter(group => {
           return(
-            !academicYear.isArchived &&
-            (searchBar === '' || academicYear.academicYear.toLowerCase().includes(searchBar.toLowerCase()) )
+            !group.isArchived &&
+            (searchBar === '' || group.groups.toLowerCase().includes(searchBar.toLowerCase()) ||
+            searchBar === '' || group.academicYear.toLowerCase().includes(searchBar.toLowerCase())) 
           )
         }) 
         .sort((a, b) => a.academicYear.localeCompare(b.academicYear)) // sort by academicYear
-        .map((ay, index) => {
-          const { academicYear, _id } = ay
-          return(
-            <div className='card' key={index}>
-              <div className="card-header">
-                <BsIcons.BsPeopleFill size='25' />
-                <h2>{academicYear}</h2>
-              </div>
-              <div className='card-buttons'>
+        .map((group, index) => {
+          const { _id, groups, academicYear } = group;
+          return (
+            <tr>
+              <td key={index}>{index + 1}</td>
+              <td><h4>{groups}</h4></td>
+              <td>{academicYear}</td>
+              <td>
+                <div className='card-buttons'>
+                  <Link 
+                    to={'/groups/group'} 
+                    state={{ 
+                      group_id: _id,
+                      groupName: groups
+                    }}
+                    className='link'
+                  >
+                    <button>View</button>
+                  </Link>
+
+                  <button onClick={() => archiveGroup(_id, groups)}>
+                    Archive
+                  </button>
+
+                  <button onClick={() => deleteGroup(_id, groups)}>
+                    Delete
+                  </button>
+
+                </div>
+              </td>
+            </tr>  
+              );
+            })}
+            </tbody>
+          </table>
+        }
         
-                <button
-                  onClick={() => {
-                    setSwitchArchivedPage(true)
-                    setStoreAcadYear(academicYear)
-                  }}
-                >View</button>
-   
-              </div>
-            </div>
-          )
-        })
-      )
-    :
-      (groupNames && groupNames.group.filter(group => {
-        return(
-          !group.isArchived &&
-          (searchBar === '' || group.groups.toLowerCase().includes(searchBar.toLowerCase()) ||
-          searchBar === '' || group.academicYear.toLowerCase().includes(searchBar.toLowerCase())) 
-        )
-      }) 
-      .sort((a, b) => a.academicYear.localeCompare(b.academicYear)) // sort by academicYear
-      .map(group => {
-        const { _id, groups, academicYear } = group;
-        return (
-          <div className='card' key={_id}>
-            <div className="card-header">
-              <BsIcons.BsPeopleFill size='25' />
-              <h2>{groups}</h2>  
-            </div>
-            <h4>{academicYear}</h4>
-            <div className='card-buttons'>
-                <Link 
-                  to={'/groups/group'} 
-                  state={{ 
-                    group_id: _id,
-                    groupName: groups
-                   }}
-                  className='link'
-                >
-                  <button>View</button>
-                </Link>
-
-                <button onClick={() => archiveGroup(_id, groups)}>
-                  Archive
-                </button>
-
-                <button onClick={() => deleteGroup(_id, groups)}>
-                  Delete
-                </button>
-
-            </div>
-          </div>
-        );
-      }))
-    }
-
-</section>
+    </section>
       
 
       <section className='controll'>
         <div className='search-bar'>
+          
           <input 
             onChange={(e) => {
               setSearchBar(e.target.value)

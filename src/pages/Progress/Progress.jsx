@@ -53,7 +53,7 @@ function Progress() {
         // clear and call
         setError('')
         setMyGroup(response.data)
-        console.log(response.data)
+        console.log(typeof response.data.findGroup.totalAveragePercent)
     
     // catch error
     }).catch((error) =>{
@@ -95,17 +95,18 @@ function Progress() {
             })}
 
       {/* only shows when the group average is 100% and the user dont have a manuscript*/}
-      {/* { myGroup.totalAveragePercent >= 100 && !myGroup.findManu && ( */}
         <div className='chapters'>
           <h2>Final Output</h2>
-          <p><strong>Required:</strong> Average of 100% from Chapter 1-4</p>
-          <Link to={'/finals'}>
-            <button className="view-progress">
-              View Progress
-            </button>
-          </Link> 
+          <p><strong>Required:</strong> Average of 100% from all Chapters to unlock</p>
+          { myGroup && (myGroup.findGroup.totalAveragePercent === '100') && !myGroup.findManu && (
+            <Link to={'/finals'}>
+              <button className="view-progress">
+                View Progress
+              </button>
+            </Link> 
+          )  }
         </div>
-        {/* )  } */}
+        
 
 
     </div>

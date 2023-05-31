@@ -22,17 +22,6 @@ import { useAuthContext } from '../../../Hooks/Auth/useAuthContext';
 import { useManuscriptContext } from '../../../Hooks/FileUpload/useManuscriptContext';
 
 
-// confirm({ title: `Do you want to delete ${groups}?`,
-//         description: `Please note that anything related to this group will be deleted. The comments, created task, progress and manuscripts!`,
-//         confirmationText: "Delete"
-// }).then(async() => {
-//   /* ... */
-// }).catch(() => {
-//         //Notification
-//         Toast(`${name} account is not archived`, 'info');
-// });
-
-
 function RepositoryFiles() {
   // context hooks
   const { user } = useAuthContext()
@@ -105,8 +94,8 @@ function RepositoryFiles() {
   // funtion to delete a Manuscript
   const deleteManuscript = async(id, manuscript) => {
 
-    confirm({ title: `Do you want to delete both the manscript and abstract of ${manuscript}?`,
-        description: `Please note that this will permanently delete the file of both the manuscrpit and the abstract!`,
+    confirm({ title: `Do you want to delete both the manscript and abstract of "${manuscript}"?`,
+        description: `Please note that this will permanently delete the file of both the manuscript and the abstract!`,
         confirmationText: "Delete"
     }).then(async() => {
         // auth

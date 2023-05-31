@@ -13,11 +13,15 @@ import { useAuthContext } from '../../../Hooks/Auth/useAuthContext';
 import { ToastContainer } from 'react-toastify';
 import Toast from '../../Toast/Toast';
 
+// Confirmation box
+import { useConfirm } from "material-ui-confirm";
+
 //react-router-dom
 import { useLocation } from 'react-router-dom';
 
 function Task() {
     const { user } = useAuthContext()
+    const confirm = useConfirm();
 
     //react-router state
     const location = useLocation();
@@ -136,57 +140,85 @@ function Task() {
         setFileUpload(null)
     }
     // Adviser File Download
-    const handleDownload = async(_id, path, mimetype) => {
-        const Auth = {
-            responseType: 'blob',
-            headers:{
-              'Authorization': `Bearer ${user.token}`
-            }
-        } 
+    const handleDownload = async(_id, path, mimetype, fileName) => {
 
-        await Axios.get(`${process.env.REACT_APP_DEV_BASE_URL}/upload/single/${_id}`, Auth).then((response) => {
-            if(response.data){
-                const split = path.split('\\');
-                const filename = split[split.length - 1];
-                setError('')
-                getAdviserFiles()
+        confirm({ title: `Do you want to download this revision: "${fileName}"?`,
+                description: `Please note that by downloading this revision: "${fileName}". It will leave a time stamp and the file will be permanently deleted!`,
+                confirmationText: "Download"
+        }).then(async() => {
 
-                // notification
-                Toast(`Your file is DOWNLOADED and REMOVED from the server`, 'success');
-                
-                //downloadjs dependency
-                return download(response.data, filename, mimetype);
-            } // catch error
-        }).catch((error) => {
-            if (error.response) {
-                setError(error.response.data.error)
+            // auth
+            const Auth = {
+                responseType: 'blob',
+                headers:{
+                'Authorization': `Bearer ${user.token}`
+                }
             } 
-        })
+
+            // get request
+            await Axios.get(`${process.env.REACT_APP_DEV_BASE_URL}/upload/single/${_id}`, Auth).then((response) => {
+                if(response.data){
+                    const split = path.split('\\');
+                    const filename = split[split.length - 1];
+                    setError('')
+                    getAdviserFiles()
+
+                    // notification
+                    Toast(`Your file is DOWNLOADED and REMOVED from the server`, 'success');
+                    
+                    //downloadjs dependency
+                    return download(response.data, filename, mimetype);
+                } // catch error
+            }).catch((error) => {
+                if (error.response) {
+                    setError(error.response.data.error)
+                } 
+            })
+
+        // cancel confirmation       
+        }).catch(() => {
+            //Notification
+            Toast(`You cancelled to download the revision: "${fileName}"`, 'info');
+        });
     }
 
     //Adviser delete query to database
-    const deleteFile = async(id) => {
-        const Auth = {
-            headers:{
-              'Authorization': `Bearer ${user.token}`
+    const deleteFile = async(id, fileName) => {
+
+        confirm({ title: `Do you want to delete this revision: "${fileName}"?`,
+                description: `Please note that this revision: "${fileName}" will be permanently removed!`,
+                confirmationText: "Delete"
+        }).then(async() => {
+
+            // auth
+            const Auth = {
+                headers:{
+                'Authorization': `Bearer ${user.token}`
+                }
             }
-        }
 
-        await Axios.delete(`${process.env.REACT_APP_DEV_BASE_URL}/upload/download/${id}`, Auth)
-        .then((response) => {
-            // remove the deleted file from the files state
-            setFiles(files.filter(file => file._id !== id));
-            setError('')
+            // delete request   
+            await Axios.delete(`${process.env.REACT_APP_DEV_BASE_URL}/upload/download/${id}`, Auth)
+            .then((response) => {
+                // remove the deleted file from the files state
+                setFiles(files.filter(file => file._id !== id));
+                setError('')
 
-            // notification
-            Toast(`Your file is DELETED`, 'success');
+                // notification
+                Toast(`Your file is DELETED`, 'success');
 
-        // catch error
-        }).catch((error) => {
-            if (error.response) {
-                setError(error.response.data.error)
-            } 
-        })
+            // catch error
+            }).catch((error) => {
+                if (error.response) {
+                    setError(error.response.data.error)
+                } 
+            })
+        
+        // cancel confirmation       
+        }).catch(() => {
+            //Notification
+            Toast(`You cancelled to delete the revision: "${fileName}"`, 'info');
+        });
     }
 
     // For student
@@ -233,55 +265,85 @@ function Task() {
     }
 
     //For student File Download
-    const handleStundentDownload = async(_id, path, mimetype) => {
-        const Auth = {
-            responseType: 'blob',
-            headers:{
-              'Authorization': `Bearer ${user.token}`
-            }
-        } 
-        await Axios.get(`${process.env.REACT_APP_DEV_BASE_URL}/upload/student/download/${_id}`, Auth).then((response) => {
-            if(response.data){
-                const split = path.split('\\');
-                const filename = split[split.length - 1];
-                getAdviserFiles()
-                setError('')
+    const handleStundentDownload = async(_id, path, mimetype, fileName) => {
 
-                // notification
-                Toast(`Your file is DOWNLOADED and REMOVED from the server`, 'success');
-                
-                //downloadjs dependency
-                return download(response.data, filename, mimetype);
-            } // catch error
-        }).catch((error) => {
-            if (error.response) {
-                setError(error.response.data.error)
+        confirm({ title: `Do you want to download this revision: "${fileName}"?`,
+                description: `Please note that by downloading this revision: "${fileName}". It will leave a time stamp and the file will be permanently deleted!`,
+                confirmationText: "Download"
+        }).then(async() => {
+
+            // auth
+            const Auth = {
+                responseType: 'blob',
+                headers:{
+                'Authorization': `Bearer ${user.token}`
+                }
             } 
-        })
+
+            // get request
+            await Axios.get(`${process.env.REACT_APP_DEV_BASE_URL}/upload/student/download/${_id}`, Auth).then((response) => {
+                if(response.data){
+                    const split = path.split('\\');
+                    const filename = split[split.length - 1];
+                    getAdviserFiles()
+                    setError('')
+
+                    // notification
+                    Toast(`Your file is DOWNLOADED and REMOVED from the server`, 'success');
+                    
+                    //downloadjs dependency
+                    return download(response.data, filename, mimetype);
+                } // catch error
+            }).catch((error) => {
+                if (error.response) {
+                    setError(error.response.data.error)
+                } 
+            })
+
+        // cancel confirmation       
+        }).catch(() => {
+            //Notification
+            Toast(`You cancelled to download the file: "${fileName}"`, 'info');
+        });
     }
 
     //delete query to database
-    const deleteStundentFile = async(id) => {
-        const Auth = {
-            headers:{
-              'Authorization': `Bearer ${user.token}`
-            }
-        }
-        await Axios.delete(`${process.env.REACT_APP_DEV_BASE_URL}/upload/student/${id}`, Auth).then((response) => {
-            if(response.data){
-                // remove the deleted file from the files state
-                setStudentFiles(files.filter(file => file._id !== id));
-                setError('')
+    const deleteStundentFile = async(id, fileName) => {
 
-                // notification
-                Toast(`Your file is DELETED`, 'success');
+        confirm({ title: `Do you want to delete this file: "${fileName}"?`,
+                description: `Please note that this file: "${fileName}" will be permanently removed!`,
+                confirmationText: "Delete"
+        }).then(async() => {
+            
+            // auth
+            const Auth = {
+                headers:{
+                'Authorization': `Bearer ${user.token}`
+                }
             }
-        // catch error
-        }).catch((error) => {
-            if (error.response) {
-                setError(error.response.data.error)
-            } 
-        })
+
+            // delete request
+            await Axios.delete(`${process.env.REACT_APP_DEV_BASE_URL}/upload/student/${id}`, Auth).then((response) => {
+                if(response.data){
+                    // remove the deleted file from the files state
+                    setStudentFiles(files.filter(file => file._id !== id));
+                    setError('')
+
+                    // notification
+                    Toast(`Your file is DELETED`, 'success');
+                }
+            // catch error
+            }).catch((error) => {
+                if (error.response) {
+                    setError(error.response.data.error)
+                } 
+            })
+
+        // cancel confirmation       
+        }).catch(() => {
+            //Notification
+            Toast(`You cancelled the file deletion: "${fileName}"`, 'info');
+        });
     }
 
  
@@ -337,7 +399,7 @@ function Task() {
                                     <div
                                         className='download' 
                                         onClick={() => {
-                                        handleStundentDownload(_id, path, mimetype)
+                                        handleStundentDownload(_id, path, mimetype, fileName)
                                     }}
                                     >download</div>) : null
                                 }
@@ -346,7 +408,7 @@ function Task() {
                                 <div className='delete-file'>
                                     <div
                                         onClick={() => {
-                                            deleteStundentFile(_id);
+                                            deleteStundentFile(_id, fileName);
                                         }} 
                                         className='warning'>
                                         delete
@@ -394,7 +456,7 @@ function Task() {
                                 <div
                                     className='download' 
                                     onClick={() => {
-                                    handleDownload(_id, path, mimetype)
+                                    handleDownload(_id, path, mimetype, fileName)
                                 }}
                                 >download</div> : null
                             }
@@ -405,7 +467,7 @@ function Task() {
                                 {user.authorization === 'admin' &&
                                     <div
                                         onClick={() => {
-                                            deleteFile(_id);
+                                            deleteFile(_id, fileName);
                                         }} 
                                         className='warning'>
                                         delete
@@ -426,4 +488,4 @@ function Task() {
   )
 }
 
-export default Task
+export default Task;

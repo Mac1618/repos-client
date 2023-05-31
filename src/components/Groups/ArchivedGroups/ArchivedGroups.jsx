@@ -72,36 +72,69 @@ const unarchiveGroup = async(id, groups) => {
 
   return (
     <> 
-      {error && <div className='error'>{error}</div>}
-      {showGroups && showGroups.group
-        .filter(group => {
-          return (
-            group.academicYear === academicYear &&
-            group.isArchived &&
-            (searchBar === "" || group.groups.toLowerCase().includes(searchBar.toLowerCase()))
-          )
-        })
-        .map(allGroup => {
-          const { _id, groups, academicYear } = allGroup;
-          return (
-            <div className='card' key={_id}>
-              <div className="card-header">
-                <BsIcons.BsPeopleFill size='25' />
-                <h2>{groups}</h2>
-              </div>
-              <h4>{academicYear}</h4>
-              <div className='card-buttons'>
-                <button 
-                  onClick={() => {
-                    unarchiveGroup(_id, groups);
-                  }}
-                >
-                  Unarchive
-                </button>
-              </div>
-            </div>
-          )
-        })}
+    <table >
+      <thead>
+          <tr>
+            <th>#</th>
+            <th>Group Name</th>
+            <th>Academic year</th>
+            <th>Buttons</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {error && <div className='error'>{error}</div>}
+          {showGroups && showGroups.group
+            .filter(group => {
+              return (
+                group.academicYear === academicYear &&
+                group.isArchived &&
+                (searchBar === "" || group.groups.toLowerCase().includes(searchBar.toLowerCase()))
+              )
+            })
+            .map((allGroup, index )=> {
+              const { _id, groups, academicYear } = allGroup;
+              return (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td><h4>{groups}</h4></td>
+                  <td>{academicYear}</td>
+
+                  <td>
+                    <div className='card-buttons'>
+                      <button 
+                        onClick={() => {
+                          unarchiveGroup(_id, groups);
+                        }}
+                      >
+                        Unarchive
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                // <div className='card' key={_id}>
+
+                //   <div className="card-header">
+                //     <BsIcons.BsPeopleFill size='25' />
+                //     <h2>{groups}</h2>
+                //   </div>
+
+                //   <h4>{academicYear}</h4>
+
+                //   <div className='card-buttons'>
+                //     <button 
+                //       onClick={() => {
+                //         unarchiveGroup(_id, groups);
+                //       }}
+                //     >
+                //       Unarchive
+                //     </button>
+                //   </div>
+                // </div>
+              )
+            })}
+        </tbody>
+      </table>
     <ToastContainer />
     </>
   )

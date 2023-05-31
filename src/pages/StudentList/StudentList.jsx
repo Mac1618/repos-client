@@ -28,45 +28,18 @@ function StudentList() {
   const [ error, setError ] = useState('');
 
   // get all pending student
-  useEffect(() => {
-    const pendingUser = async() => {
+  const pendingUser = async() => {
 
-      const Auth = {
-        headers:{
-          'Authorization': `Bearer ${user.token}`
-        }
-      }
-
-      if(user){
-        await Axios.get(`${process.env.REACT_APP_DEV_BASE_URL}/user/pending`, Auth).then((response) => {
-          if(response.data){
-              setPendings(response.data)
-              setError('')
-          }
-
-        // catch error
-        }).catch((error) => {
-            if (error.response) {
-                setError(error.response.data.error)
-            } 
-        })
+    const Auth = {
+      headers:{
+        'Authorization': `Bearer ${user.token}`
       }
     }
-    pendingUser()
-  }, [user])
 
-  // get all registerd student
-  useEffect(() => {
-    const studentUser = async() => {
-      const Auth = {
-        headers:{
-          'Authorization': `Bearer ${user.token}`
-        }
-      }
-
-      await Axios.get(`${process.env.REACT_APP_DEV_BASE_URL}/user/students`, Auth).then((response) => {
+    if(user){
+      await Axios.get(`${process.env.REACT_APP_DEV_BASE_URL}/user/pending`, Auth).then((response) => {
         if(response.data){
-            setStudentList(response.data)
+            setPendings(response.data)
             setError('')
         }
 
@@ -77,8 +50,36 @@ function StudentList() {
           } 
       })
     }
-    studentUser();
+  }
 
+  useEffect(() => {
+    pendingUser()
+  }, [user])
+
+  // get all registerd student
+  const studentUser = async() => {
+    const Auth = {
+      headers:{
+        'Authorization': `Bearer ${user.token}`
+      }
+    }
+
+    await Axios.get(`${process.env.REACT_APP_DEV_BASE_URL}/user/students`, Auth).then((response) => {
+      if(response.data){
+          setStudentList(response.data)
+          setError('')
+      }
+
+    // catch error
+    }).catch((error) => {
+        if (error.response) {
+            setError(error.response.data.error)
+        } 
+    })
+  }
+
+  useEffect(() => {
+    studentUser();
   }, [user])
 
   // Accept a student
@@ -86,7 +87,7 @@ function StudentList() {
 
     confirm({ title: `Do you want to accept ${name}?`,
         description: `Please note that ${name} will be listed to your Officail list. This student will also joined his requested group!`,
-        confirmationText: "Delete"
+        confirmationText: "Accept"
     }).then(async() => {
         
         // auth
@@ -103,10 +104,12 @@ function StudentList() {
         await Axios.patch(`${process.env.REACT_APP_DEV_BASE_URL}/user/pending/${_id}`, data, Auth)
         .then((response) => {
             // notification
-            Toast(`You accepted ${name} as your student`, 'success');
-
+            Toast(`You accepted ${name} as your student. The student via also be notified via email`, 'success');
+            
             //reset state
             setError('')
+            pendingUser()
+            studentUser()
 
           // catch error
           }).catch((error) => {
@@ -138,6 +141,7 @@ function StudentList() {
         await Axios.delete(`${process.env.REACT_APP_DEV_BASE_URL}/user/pending/${_id}`, Auth )
         .then((response) => {
             setError('')
+            pendingUser()
 
             // notification
             Toast(`You REMOVED ${name} from the pending accounts`, 'success');
@@ -157,7 +161,7 @@ function StudentList() {
   // Delete a student account
   const removeStudentAccount = async(_id, name) => {
 
-    confirm({ title: `Do you want to delete this student account? ${name}?`,
+    confirm({ title: `Do you want to delete this student account: "${name}"?`,
             description: `Please note that ${name}'s account will permanently removed!`,
             confirmationText: "Delete"
     }).then(async() => {
@@ -173,7 +177,7 @@ function StudentList() {
         .then((response) => {
           // notification
           Toast(`You REMOVED ${name} from your official list of students`, 'success');
-
+          studentUser()
           setError('')
             
         // catch error

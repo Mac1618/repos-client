@@ -101,7 +101,7 @@
     justify-content: space-between;
     align-items: center;
     height: 10vh;
-    margin-top: 10vh;
+    margin: 10vh 0 2vh 0;
 }
 
 .handled-section h3{
@@ -123,4 +123,22 @@
 
 .create-admin .search-bar span{
     height: 80%;
+}
+
+/* Table buttons*/
+.create-admin .btns-more-less{
+    border: none;
+    outline: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.create-admin .btns-more-less:hover{
+    font-weight: bolder;
+}
+
+.create-admin .btns-advisers{
+    padding: 5px 8px;
+    margin: 0 20px 0 0;
 }
